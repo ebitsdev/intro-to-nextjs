@@ -21,10 +21,17 @@ const Container = styled.div`
 // const TypeHeader = styled.span`
 //     font-weight: bold;
 // `
-
-export default observer(() => {
-  const router = useRouter()
-  const photo = store.photo.find((p) => p.id === (router.query.id))
+export const getServerSideProps = async (context) => {
+    const photos = await (
+        await fetch('https://picsum.photos/v2/list')).json();
+    const photo = photos.find((p) => p.id === context.query.id);
+    return {
+        props: {
+            photo
+        },
+    };
+}
+export default observer(({ photo }) => {    
   return (
     <Container>
       <CssBaseline />

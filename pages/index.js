@@ -3,6 +3,7 @@ import { CssBaseline } from "@material-ui/core";
 import PhotoInfo from '../components/PhotoInfo'
 import PhotoFilter from '../components/PhotoFilter'
 import PhotoTable from '../components/PhotoTabe'
+import store from "../src/store";
 
 
 
@@ -22,8 +23,16 @@ const TwoColumnLayout = styled.div`
   grid-template-columns: 80% 20%;
   grid-column-gap: 1rem;
 `
-
-function Home() {
+export const getServerSideProps = async () => {
+  const photo = await (await fetch('https://picsum.photos/v2/list')).json();
+  return {
+    props: {
+      photo
+    },};
+  
+}
+function Home({ photo }) {
+  store.setPhoto(photo);
   return (
     <Container>
       <CssBaseline />
