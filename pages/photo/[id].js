@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import { observer } from 'mobx-react'
 
 import {
@@ -11,7 +10,6 @@ import {
   TableRow,
 } from '@material-ui/core'
 import styled from '@emotion/styled'
-import store from '../../src/store'
 
 const Container = styled.div`
   margin: 0 auto;
@@ -48,18 +46,18 @@ export default observer(({ photo }) => {
                     </TableCell>
                 </TableRow>
             </TableHead>
-          <tbody>
-            <tr>
-              <td>
+          < TableBody>
+            <TableRow>
+              <TableCell>
                 <img
                   width="180px"
                   alt={photo.author}
                   src={photo.download_url}
                 />
-              </td>
-              <td>{photo.download_url}</td>
-            </tr>
-          </tbody>
+              </TableCell>
+              <TableCell>{photo.download_url}</TableCell>
+            </TableRow>
+          </TableBody>
         </Table>
       </div>
     </Container>

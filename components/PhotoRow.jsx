@@ -1,27 +1,30 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link';
-
-import { Button } from '@material-ui/core'
+import {  
+  Button,  
+  TableCell, 
+  TableRow,
+} from '@material-ui/core'
 import PhotoType from '../src/PhotoType'
 const PhotoRow = ({ photo, onSelect }) => (
   // We use onSelect function when the user clicks on the button
   <>
-    <tr key={photo.id}>
-      <td>
+    <TableRow key={photo.id}>
+      <TableCell>
         <Link href={`/photo/${photo.id}`}>
           <a>{photo.author}</a>
         </Link>
-      </td>
-      <td>{photo.author}</td>
-      <td>{photo.width}</td>
-      <td>{photo.height}</td>
-      <td>
+      </TableCell>
+      <TableCell>{photo.author}</TableCell>
+      <TableCell>{photo.width}</TableCell>
+      <TableCell>{photo.height}</TableCell>
+      <TableCell>
         <a href={photo.url}>{photo.author}</a>
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         <a href={photo.download_url}>Download</a>
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         <Button
           variant="contained"
           color="primary"
@@ -29,8 +32,8 @@ const PhotoRow = ({ photo, onSelect }) => (
         >
           Show photo
         </Button>
-      </td>
-    </tr>
+      </TableCell>
+    </TableRow>
   </>
 )
 

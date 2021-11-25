@@ -1,4 +1,12 @@
-import { Table } from '@material-ui/core'
+import {
+  CssBaseline,
+  Link,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+} from '@material-ui/core'
 import PhotoRow from './PhotoRow'
 import { observer } from 'mobx-react'
 import store from '../src/store';
@@ -7,7 +15,7 @@ function PhotoTable() {
   
   return (
     <Table width="100%">
-      <tbody>
+      <TableBody>
         {store.filteredPhoto
           .map((photo) => (
             <PhotoRow
@@ -16,7 +24,7 @@ function PhotoTable() {
               onSelect={(photo) => store.setSelectedPhoto(photo)}
             />
           ))}
-      </tbody>
+      </TableBody>
     </Table>
   )
 }
