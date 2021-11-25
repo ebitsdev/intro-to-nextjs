@@ -16,13 +16,15 @@ const Container = styled.div`
   width: 800px;
   padding: 1empx;
 `
-// const TypeHeader = styled.span`
-//     font-weight: bold;
-// `
-export const getServerSideProps = async (context) => {
+export const getStaticPaths = async () => {
+    const photo = await ( await fetch('https://picsum.photos/v2/list')).json();
+    const paths = photo.map((p) => ({ params: { id: p.id } }));
+    return { paths, fallback: false };
+}
+export const getStaticProps = async (context) => {
     const photos = await (
         await fetch('https://picsum.photos/v2/list')).json();
-    const photo = photos.find((p) => p.id === context.query.id);
+    const photo = photos.find((p) => p.id === context.params.id);
     return {
         props: {
             photo

@@ -23,16 +23,8 @@ const TwoColumnLayout = styled.div`
   grid-template-columns: 80% 20%;
   grid-column-gap: 1rem;
 `
-export const getServerSideProps = async () => {
-  const photo = await (await fetch('https://picsum.photos/v2/list')).json();
-  return {
-    props: {
-      photo
-    },};
-  
-}
-function Home({ photo }) {
-  store.setPhoto(photo);
+
+function Home() {
   return (
     <Container>
       <CssBaseline />

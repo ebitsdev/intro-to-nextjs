@@ -33,10 +33,10 @@ class Store {
 }
 
 const store = new Store()
-// if(typeof window !== 'undefined') {
-// fetch('https://picsum.photos/v2/list')
-//   .then((response) => response.json())
-//   .then((photo) => store.setPhoto(photo))
-//   .catch((error) => console.log(error))
-// }
+if(typeof window !== 'undefined') {
+fetch('https://picsum.photos/v2/list')
+  .then((response) => response.json())
+  .then((photo) => store.setPhoto(photo))
+  .catch((error) => console.log(error))
+}
 export default store
