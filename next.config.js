@@ -4,4 +4,6 @@ module.exports = {
     path: '',
   },
   reactStrictMode: true,
+  basePath: '/intro-to-nextjs',
+  assetPrefix: '/intro-to-nextjs/',
 }
