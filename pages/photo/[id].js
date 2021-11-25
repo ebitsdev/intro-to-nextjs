@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react'
-
+import Image from 'next/image';
 import {
   CssBaseline,
   Link,
@@ -51,8 +51,9 @@ export default observer(({ photo }) => {
           < TableBody>
             <TableRow>
               <TableCell>
-                <img
-                  width="180px"
+                <Image
+                  width="80rem"
+                  height="60rem"
                   alt={photo.author}
                   src={photo.download_url}
                 />

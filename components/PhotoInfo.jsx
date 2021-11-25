@@ -1,4 +1,4 @@
-
+import Image from 'next/image'
 import { Table } from '@material-ui/core'
 import { observer } from 'mobx-react'
 import store from '../src/store';
@@ -12,8 +12,9 @@ const PhotoInfo = () => {
         <tbody>
           <tr>
             <td>
-              <img
-                width="180px"
+              <Image
+                width="60rem"
+                height="60rem%"
                 alt={store.selectedPhoto.author}
                 src={store.selectedPhoto.download_url}
               />
